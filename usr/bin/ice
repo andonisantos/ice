@@ -508,11 +508,11 @@ class Ice(Gtk.Window):
         appurl = normalize(url.get_text())
         global iconpath
         try:
-            download_favicon(appurl)
-            addr0 = get_favicon_url(appurl)
-            addr1 = addr0.replace('/', ' ')
-            addr2 = addr1.split()[-1]
-            iconpath = "/tmp/{0}".format(addr2)
+            iconpath = download_favicon(appurl)
+#            addr0 = get_favicon_url(appurl)
+#            addr1 = addr0.replace('/', ' ')
+#            addr2 = addr1.split()[-1]
+#            iconpath = "/tmp/{0}".format(addr2)
             new_icon = Pixbuf.new_from_file_at_size(iconpath, 32, 32)
             icon.set_from_pixbuf(new_icon)
         except:
